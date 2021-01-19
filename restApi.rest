@@ -1,13 +1,12 @@
-# call apikey
+## get all contacts for user uid
 
-GET http://127.0.0.1:8000/user
-
-"APP_KEY": "ABCDEFGHIJK"
-
+GET http://localhost:8080/Laravel/QCRM/public/api/products
+Content-Type: application/json
+Authorization: AB
 
 
 ### get all contacts for user uid
 
-GET http://localhost:8080/Laravel/QCRM/public/api/country
+GET http://localhost:8080/Laravel/QCRM/public/api/products/7
 Content-Type: application/json
-APP_KEY: ABCDEFGHIJK
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI3MzZjNDdlMTc3MGE2ZjllMDRiZDdmYTk2NzYyMjciLCJuYW1lIjoic2FtYmF0aCIsImVtYWlsIjoic2FtYmF0aGFyanVuYW5AZ21haWwuY29tIiwiaWF0IjoxNjEwOTM4ODYxLCJleHAiOjE2MTEwMjUyNjF9.7ATXk4afRUHDoLz24WVbCpD63FwKiZe8rtYTsspjkmE 

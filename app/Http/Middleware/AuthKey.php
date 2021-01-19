@@ -15,10 +15,10 @@ class AuthKey
      */
     public function handle($request, Closure $next)
     {
-        $token = $request->header('APP_KEY');
+        $token = $request->header('Authorization');
 
-        if($token != 'ABCDEFGHIJK'){
-            return response()->json(['message'=>'APP key  Not Found'],401);
+        if($token == 'A'){
+            return response()->json(['message'=>'APP key  Not Found','api'=>$request->header()],401);
         }
         return $next($request);
     }
