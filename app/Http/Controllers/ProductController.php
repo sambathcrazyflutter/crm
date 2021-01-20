@@ -70,9 +70,14 @@ class ProductController extends Controller
      * @param  \App\Model\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request,$product)
     {
-        //
+        $product = product::find($product);
+        $product->name = $request['name']; // query param
+        $product->discount = $request['discount'];
+        $product->price = $request['price'];
+        $update =  $product->save();
+        return  response()->json($update , 200);
     }
 
     /**
@@ -83,6 +88,11 @@ class ProductController extends Controller
      */
     public function destroy(product $product)
     {
-        //
+        $product = product::find($product);
+        $delete =  $product->delete();
+          return  response()->json($delete , 200);
+   
     }
+
+
 }

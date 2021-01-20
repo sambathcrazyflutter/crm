@@ -10,8 +10,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/products','ProductController');
 
-
 Route::group(['prefix'=>'products'], function(){ 
-
+ 
+ Route::PUT('/{product}','ProductController@update');
+ Route::DELETE('/{product}','ProductController@destroy');
  Route::apiResource('/{product}/reviews','ReviewController');
 });
