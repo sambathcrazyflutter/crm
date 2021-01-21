@@ -2,17 +2,25 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Http\Middleware\Contacts;
+
+//Auth::routes();
+
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
-Route::apiResource('/products','ProductController');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+// Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix'=>'products'], function(){ 
- 
- Route::PUT('/{product}','ProductController@update');
- Route::DELETE('/{product}','ProductController@destroy');
- Route::apiResource('/{product}/reviews','ReviewController');
-});
+// Route::apiResource('/products','ProductController');
+
+// Route::group(['prefix'=>'products'], function(){ 
+//     Route::apiResource('/{product}/reviews','ReviewController');
+// });
+
+

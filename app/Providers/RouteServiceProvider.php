@@ -46,6 +46,9 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
+        $this->mapContactRoutes();
+
+        $this->mapUserRoutes();
         //
     }
 
@@ -77,4 +80,35 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace)
             ->group(base_path('routes/api.php'));
     }
+
+     /**
+     * Define the "contact" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapContactRoutes()
+    {
+        Route::prefix('contact')
+            ->middleware('contact')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/contacts.php'));
+    }
+
+     /**
+     * Define the "user" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapUserRoutes()
+    {
+        Route::prefix('user')
+            ->middleware('user')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/users.php'));
+    }
+
 }
