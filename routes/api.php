@@ -2,25 +2,40 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use \App\Http\Middleware\Contacts;
+use App\Http\Controllers\AuthController;
 
-//Auth::routes();
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    // Route::post('/login', [AuthController::class, 'login']);
+    // Route::post('/register', [AuthController::class, 'register']);
+    // Route::post('/logout', [AuthController::class, 'logout']);
+    // Route::post('/refresh', [AuthController::class, 'refresh']);
+    // Route::get('/user-profile', [AuthController::class, 'userProfile']); 
+
+    
+Route::post('/login', 'AuthController@login')->name('user.login');
+
+Route::post('/register', 'AuthController@register')->name('user.register');
+
+Route::post('/logout', 'AuthController@logout')->name('user.logout');
+
+Route::post('/refresh', 'AuthController@refresh')->name('user.refresh'); 
 
 
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::apiResource('/products','ProductController');
-
-// Route::group(['prefix'=>'products'], function(){ 
-//     Route::apiResource('/{product}/reviews','ReviewController');
-// });
-
-
+Route::get('/user-profile', 'AuthController@userProfile')->name('user.userProfile'); 
+   
+});
